@@ -1,7 +1,5 @@
 /*
 p5.play
-by Paolo Pedercini/molleindustria, 2015
-http://molleindustria.org/
 */
 
 (function(root, factory) {
@@ -39,7 +37,6 @@ var DEFAULT_FRAME_RATE = 30;
 
 // This is the new way to initialize custom p5 properties for any p5 instance.
 // The goal is to migrate lazy P5 properties over to this method.
-// @see https://github.com/molleindustria/p5.play/issues/46
 p5.prototype.registerMethod('init', function p5PlayInit() {
   /**
    * The sketch camera automatically created at the beginning of a sketch.
@@ -79,9 +76,7 @@ p5.prototype.registerMethod('init', function p5PlayInit() {
 // Note that this isn't just an optimization: p5 currently provides no
 // way for add-ons to be notified when new p5 instances are created, so
 // lazily creating these properties is the *only* mechanism available
-// to us. For more information, see:
-//
-// https://github.com/processing/p5.js/issues/1263
+
 function defineLazyP5Property(name, getter) {
   Object.defineProperty(p5.prototype, name, {
     configurable: true,
